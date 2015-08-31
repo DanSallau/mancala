@@ -1,11 +1,11 @@
 body
 {
-  padding-top: 40px;
+
 }
 footer {
   padding-left: 15px;
   padding-right: 15px;
-  margin-top : 200px;
+  margin-top : 20px;
 }
 footer p {
   border-top: 1px solid #d7e0e2;
@@ -128,7 +128,20 @@ line-height: 30px;
   -webkit-border-radius: 50%;
   
 }
- 
+.robotId{
+  text-align: center;
+  font-size:60px;
+  color: white;
+  line-height: 30px;
+  font-weight: bold;
+ }
+.userId{
+  text-align: center;
+  font-size:60px;
+  color: white;
+  line-height: 30px;
+  font-weight:bold;
+ }
 .grid-mega-cell {
     width: 93.25px;
     height: 211.50px;
