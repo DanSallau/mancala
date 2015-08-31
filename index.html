@@ -4,44 +4,65 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/site.css">
 </head>
-<body>
+<body onload="myFunction()">
 
 <div class="container">
 
     <div class="row">
+    <center><div class="title">Mancala</div></center>
 
     </div>
     <div class="row">
         <div class="game-container">
             <div class="grid-container">
-                <div class="col-md-2 grid-mega-cell">...</div>
+                <div class="col-md-2 grid-mega-cell">
+                    <label for="tile15" class="mylabel" id="15" style="margin-top:70px;"></label></div>
                 <div class="col-md-10">
                     <div class="row grid-row">
-                        <div class="col-md-2 grid-cell">1</div>
-                        <div class="col-md-2 grid-cell">2</div>
-                        <div class="col-md-2 grid-cell">3</div>
-                        <div class="col-md-2 grid-cell">4</div>
-                        <div class="col-md-2 grid-cell">4</div>
-                        <div class="col-md-2 grid-cell">4</div>
-                        <div class="col-md-2 grid-cell">7</div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile14" class="mylabel" id="14" ></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile13" class="mylabel" id="13"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile12" class="mylabel" id="12"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile11" class="mylabel" id="11"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile10" class="mylabel" id="10"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile9" class="mylabel" id="9"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile8" class="mylabel" id="8"></label></div>
                     </div>
                     <div class="row grid-row">
-                        <div class="col-md-2 grid-cell">1</div>
-                        <div class="col-md-2 grid-cell">2</div>
-                        <div class="col-md-2 grid-cell">3</div>
-                        <div class="col-md-2 grid-cell">4</div>
-                        <div class="col-md-2 grid-cell">4</div>
-                        <div class="col-md-2 grid-cell">4</div>
-                        <div class="col-md-2 grid-cell">7</div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile7" class="mylabel" id="7" onclick="mouseClick(this)"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile6" id="6" class="mylabel" onclick="mouseClick(this)"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile5" id="5" class="mylabel" onclick="mouseClick(this)"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile4" id="4" class="mylabel" onclick="mouseClick(this)"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile3" id="3" class="mylabel" onclick="mouseClick(this)"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile2" id="2" class="mylabel" onclick="mouseClick(this)"></label></div>
+                        <div class="col-md-2 grid-cell">
+                            <label for="tile1" id="1" class="mylabel" onclick="mouseClick(this)"></label></div>
                     </div>
                 </div>
-                <div class="col-md-2 grid-mega-cell">...</div>
+                <div class="col-md-2 grid-mega-cell">
+                    <label for="tile0" class="mylabel" id="0" style="margin-top:70px;"></label></div>
 
             </div>
         </div>
     </div>
 
 </div>
+ <footer class="container text-center">
+        <p>&copy; 2015 UrlShortener by Nuru Salihu </p>
 
+</footer>
+<script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>
