@@ -1,0 +1,6 @@
+Mancala
+
+1) Do not put on your opponent mancala.
+2) If it falls on you mancala you do again.
+3) If the mancala fall on empty can in ur side, 
+   you take the whole opponent opposite container
