@@ -1,8 +1,16 @@
 body
 {
-
+  padding-top: 40px;
 }
- .game-container {
+footer {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top : 200px;
+}
+footer p {
+  border-top: 1px solid #d7e0e2;
+}
+.game-container {
   margin: 40px;
   padding: 15px;
   cursor: default;
@@ -67,6 +75,7 @@ body
 
 .grid-container {
   position: relative;
+  margin : auto;
   z-index: 1; }
 
 .grid-row {
@@ -80,10 +89,18 @@ body
 
 .grid-cell {
   width: 93.25px;
-  height: 106.25px;
-  margin-right: 15px;
-  float: left;
-  border-radius: 3px;
+  height: 93.25px;
+  margin: 8px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  
+  /*font-size:0px;
+  line-height:500px;*/
+  text-align: center;
+
+  /*float: left;
+  /*border-radius: 3px;*/
   background: rgba(238, 228, 218, 0.35); }
   .grid-cell:last-child {
     margin-right: 0px; }
@@ -92,46 +109,42 @@ body
     margin-bottom: 15px;
 }
 
+.title
+{
+  line-height:  = 500px;
+  font-size: 50px;
+
+}
+label{
+  margin-top:20px;
+font-size:30px;
+line-height: 30px;
+  height:50px;
+  width: 50px;
+  text-align: center;
+  padding: 10px;
+   border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  
+}
  
 .grid-mega-cell {
     width: 93.25px;
-    height: 227.50px;
+    height: 211.50px;
+    margin-top: 8px;
     margin-right: 15px;
+    margin-left: 35px;
     float: left;
     border-radius: 3px;
     background: rgba(238, 228, 218, 0.35); }
 
-.column-left{ float: left; width: 10%; }
-.column-right{ float: right; width: 10%; }
-.column-center{ float:left; width: 80%; }
-
-@media (min-width: 768px){
-    .seven-cols .col-md-1,
-    .seven-cols .col-sm-1,
-    .seven-cols .col-lg-1  {
-        width: 100%;
-        *width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .seven-cols .col-md-1,
-    .seven-cols .col-sm-1,
-    .seven-cols .col-lg-1 {
-        width: 14.285714285714285714285714285714%;
-        *width: 14.285714285714285714285714285714%;
-    }
-}
-
-/**
- *  The following is not really needed in this case
- *  Only to demonstrate the usage of @media for large screens
- */
-@media (min-width: 1200px) {
-    .seven-cols .col-md-1,
-    .seven-cols .col-sm-1,
-    .seven-cols .col-lg-1 {
-        width: 14.285714285714285714285714285714%;
-        *width: 14.285714285714285714285714285714%;
-    }
+ .circle {
+    background: black;
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
 }
