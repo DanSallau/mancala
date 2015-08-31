@@ -13,6 +13,24 @@
 
     </div>
     <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                  <img src="./images/robot.jpg" />
+               </div>
+               <div class="col-md-6">
+                <p id="robotId" style="font-size:14px;font-weight:bold;color:white;text-align:center"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <input type="button" id="btnReplay1" value="Play again" onclick="replayGame()"/>
+        </div>
+        
+    </div>
+    <div class="row">
         <div class="game-container">
             <div class="grid-container">
                 <div class="col-md-2 grid-mega-cell">
@@ -57,10 +75,62 @@
             </div>
         </div>
     </div>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+      
+            <div class="row">
+                <div class="col-md-6">
+                  <img src="./images/user.jpg" />
+               </div>
+               <div class="col-md-6">
+                <p id="userId" style="font-size:14px;font-weight:bold;color:white;text-align:center"></p>
+                </div>
+            </div>
+      
+        </div>
+        <div class="col-md-4">
+            <input type="button" id="btnReplay2" value="Play again" onclick="replayGame()"/>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-6">
+            <p><b><h3>Instructions</h3></b>
+            
+            </p>
+            <p>
+              Your goal is to get more gems into your mancala (the cup on the right) than the computer can get into its mancala (on the left).</p>
+            <p>You get to start, then the computer takes its turn and so on.</p>
+
+            <p>
+                <ol>
+                    <li>
+                        You can only move gems on your side (which is the bottom row).
+                    </li>
+                    <li>
+                        To move, you click on one of the cups in your row. This picks up all the pieces in that cup and moves them counter-clockwise, putting one gem in each cup. (You'll see!)
+                    </li>
+                    <li>
+                        If the last gem of your move lands in your mancala, you get to go again.
+                    </li>
+                    <li>
+                        If the last gem of your move lands in an empty cup on your side and there are gems in the computer's cup right across from it, then all the gems in both cups get put into your mancala.
+                    </li>
+                </ol>
+            </p>
+        </div>
+        <div class="col-md-5">
+        </div>
+    </div>    
 
 </div>
- <footer class="container text-center">
-        <p>&copy; 2015 UrlShortener by Nuru Salihu </p>
+<footer class="container text-center">
+<p>&copy; 2015 Mancala by Nuru Salihu Abdullahi</p>
 
 </footer>
 <script src="js/app.js" type="text/javascript"></script>
