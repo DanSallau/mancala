@@ -2,6 +2,7 @@ function myFunction() {
     var row1 = [];
         tiles = [];
         count = 0;
+        gameEnd = false;
 
     var x = document.querySelectorAll("label");
     var defaultColor = x[0].backgroundColor;
@@ -12,6 +13,17 @@ function myFunction() {
         x[i].style.backgroundColor = "red";
 
     }
+
+    //hide replay buttons
+	document.getElementById("btnReplay1").style.display='none';
+	document.getElementById("btnReplay2").style.display='none';
+
+	//Reset 
+	document.getElementById("robotId").innerHTML='';
+	document.getElementById("robotId").innerText='';
+
+	document.getElementById("userId").innerHTML='';
+	document.getElementById("userId").innerText='';
 
     //clear the main mancalas
     tiles[0] = 0;
@@ -27,11 +39,25 @@ function mouseClick(value){
 	var number = tiles[value.id];
 	var counter = value.id;
 	tiles[value.id] = 0;
+ 
+    //Clears messages
+    document.getElementById("robotId").innerHTML='';
+	document.getElementById("robotId").innerText='';
+
+	document.getElementById("userId").innerHTML='';
+	document.getElementById("userId").innerText='';
 
 	//set the value of the selected text to 0;
 	var x = document.getElementById(counter);
 	x.innerHTML = tiles[counter];
-	x.innerText  = tiles[counter];
+
+	 
+
+	if(typeof x.innerHTML == "undefined") //check for IE
+	{
+		x.innerText  = tiles[counter];
+	}
+	
 	x.style.backgroundColor = "red";
 
 	var isUseronRobot = false;
@@ -44,7 +70,7 @@ function mouseClick(value){
     	isTypeUser = true;
     
 
-	while(number > 0)
+	while(number > 0 && gameEnd === false)
 	{
 		if(isUseronRobot === true) // user on robot side
 		{
@@ -75,8 +101,10 @@ function mouseClick(value){
 			if(number == 0 && parseInt(tiles[counter]) == 0 && isTypeUser === true && counter != 0)
 			{
 				//alert("Falls on opposite : id :" + counter);
-				tiles[0] = tiles[0] + tiles[counter + 7];
+				tiles[counter] = tiles[counter] + 1;
+				tiles[0] = tiles[0] + tiles[counter + 7] + tiles[counter];
 				tiles[counter + 7] = 0;
+				tiles[counter] = 0;
 				writeDisplay(counter + 7) ;
 				counter=0;
 
@@ -88,6 +116,13 @@ function mouseClick(value){
 				isSuccessfulPlay = false;
 			   // alert("Its a redo");
 			    tiles[counter] = tiles[counter] + 1;
+
+			    document.getElementById("userId").innerHTML="Your turn again!!!";
+	            document.getElementById("userId").innerText="Your turn again!!!";
+	            document.getElementById("userId").style.backgroundColor = "red";
+
+	            document.getElementById("robotId").innerHTML='';
+	            document.getElementById("robotId").innerText='';
 			// Replay when it falls on your mancala
 			}
 			else
@@ -105,8 +140,10 @@ function mouseClick(value){
 	    	if(number == 0 && parseInt(tiles[counter]) == 0 && isTypeUser === false && counter != 15) // falls on the opposite
 	    	{
 	    		//alert("Falls on opposite robot : id :" + counter);
-				tiles[15] = tiles[15] + tiles[counter - 7];
+	    		tiles[counter] = tiles[counter] + 1;
+				tiles[15] = tiles[15] + tiles[counter - 7] + tiles[counter];
 				tiles[counter - 7] = 0;
+				tiles[counter] = 0;
 				writeDisplay(counter - 7) ;
 				counter=15;
 
@@ -118,6 +155,14 @@ function mouseClick(value){
 	    		isSuccessfulPlay = false;
 			  //  alert("Its a redo");
 			    tiles[counter] = tiles[counter] + 1;
+
+                document.getElementById("robotId").innerHTML="Your turn again!!!";
+	            document.getElementById("robotId").innerText="Your turn again!!!";
+	            document.getElementById("robotId").style.backgroundColor = "red";
+
+	            document.getElementById("userId").innerHTML='';
+	            document.getElementById("userId").innerText='';
+
 			    robotPlay();
 			// Replay when it falls on your mancala
 	    	}
@@ -156,13 +201,24 @@ function mouseClick(value){
 		}
 
 	}
+	//Check for game over
+	 if(gameEnd === false)
+	 {
+	 	if(tiles.slice(1,8).filter(isBigEnough).length == 0)
+	 	{
+	 		gameOver();
+	 	}
+	 	else if(tiles.slice(8,15).filter(isBigEnough).length == 0)
+	 	{
+	 		gameOver();
+	 	}
+	 	if(count == 0 && isSuccessfulPlay === true)
+	 	{
+	 		robotPlay();
+	 	}
 	
-
-	if(count == 0 && isSuccessfulPlay === true)
-	{
-		robotPlay();
 	}
-	
+	 
 	count = 0;
 	
 }
@@ -183,23 +239,68 @@ function robotPlay()
 }
 function gameOver()
 {
-	for(i=1;i<= tiles.length; i++)
+	/*
+	for(i=1; i < (tiles.length - 1); i++)
 	{
 		if(i <= 7)
 		{
 			tiles[0] = tiles[0] + tiles[i];
 			tiles[i] = 0;
-		    writeDisplay();
-
+			writeDisplay(i);
 		}
-		else
+		else if(i > 7)
 		{
 			tiles[15] = tiles[15] + tiles[i];
 			tiles[i] = 0;
-		    writeDisplay();
+			writeDisplay(i);
 		}
 
 	}
+	*/
+	alert("Game Over!!!");
+	 
+	if(parseInt(tiles[0]) > parseInt(tiles[15]))
+	{
+		var z = document.getElementById("userId");
+		z.innerHTML = "You win with a score : " + tiles[0];
+		z.style.backgroundColor = "green";
+
+		z = document.getElementById("robotId");
+		z.innerHTML = "Computer lose with a Score : " + tiles[15];
+		z.style.backgroundColor = "red";
+
+	}
+	else if(parseInt(tiles[15]) > parseInt(tiles[0]))
+	{
+		var y = document.getElementById("robotId");
+		y.innerHTML = "Computer wins with a Score : " + tiles[15];
+		y.style.backgroundColor = "green";
+
+	    y = document.getElementById("userId");
+		y.innerHTML = " You lose with a Score : " + tiles[15];
+		y.style.backgroundColor = "red";
+	}
+	else
+	{
+		var x = document.getElementById("robotId");
+		x.innerHTML = "Its a tie with a Score : " + tiles[15];
+		x.style.backgroundColor = "green";
+
+	    x = document.getElementById("userId");
+		x.innerHTML = " Its a tie with a Score : " + tiles[15];
+		x.style.backgroundColor = "green";
+
+
+	}
+
+    //Show replay buttons
+
+	document.getElementById("btnReplay1").style.display='block';
+	document.getElementById("btnReplay2").style.display='block';
+	gameEnd = true;
+	writeDisplay(0);
+	writeDisplay(15);
+	
 
 }
 function numIndexes()
@@ -236,4 +337,8 @@ function getRandomArbitrary(min, max) {
 }
 function isBigEnough(value) {
   return value > 0;
+}
+function replayGame()
+{
+	myFunction();
 }
