@@ -40,13 +40,7 @@ function mouseClick(value){
 	var counter = value.id;
 	tiles[value.id] = 0;
  
-    //Clears messages
-    document.getElementById("robotId").innerHTML='';
-	document.getElementById("robotId").innerText='';
-
-	document.getElementById("userId").innerHTML='';
-	document.getElementById("userId").innerText='';
-
+    
 	//set the value of the selected text to 0;
 	var x = document.getElementById(counter);
 	x.innerHTML = tiles[counter];
@@ -156,8 +150,8 @@ function mouseClick(value){
 			  //  alert("Its a redo");
 			    tiles[counter] = tiles[counter] + 1;
 
-                document.getElementById("robotId").innerHTML="Your turn again!!!";
-	            document.getElementById("robotId").innerText="Your turn again!!!";
+                document.getElementById("robotId").innerHTML="Computer's turn again!!!";
+	            document.getElementById("robotId").innerText="Computer's turn again!!!";
 	            document.getElementById("robotId").style.backgroundColor = "red";
 
 	            document.getElementById("userId").innerHTML='';
@@ -171,6 +165,14 @@ function mouseClick(value){
 	    		tiles[counter] = tiles[counter] + 1;
 	    		isSuccessfulPlay = true;
 	    	}
+
+	    	//Clears messages
+            document.getElementById("robotId").innerHTML="";
+        	document.getElementById("robotId").innerText="";
+
+        	document.getElementById("userId").innerHTML="";
+	        document.getElementById("userId").innerText="";
+
 
 		}
 		
@@ -201,6 +203,7 @@ function mouseClick(value){
 		}
 
 	}
+
 	//Check for game over
 	 if(gameEnd === false)
 	 {
@@ -218,6 +221,8 @@ function mouseClick(value){
 	 	}
 	
 	}
+
+
 	 
 	count = 0;
 	
@@ -261,34 +266,40 @@ function gameOver()
 	 
 	if(parseInt(tiles[0]) > parseInt(tiles[15]))
 	{
-		var z = document.getElementById("userId");
-		z.innerHTML = "You win with a score : " + tiles[0];
-		z.style.backgroundColor = "green";
 
-		z = document.getElementById("robotId");
-		z.innerHTML = "Computer lose with a Score : " + tiles[15];
-		z.style.backgroundColor = "red";
+		document.getElementById("userId").innerHTML = "You win with a score : " + tiles[0];
+		document.getElementById("userId").innerText = "You win with a score : " + tiles[0];
+		document.getElementById("userId").style.backgroundColor = "green";
+
+	 
+		document.getElementById("robotId").innerHTML = "Computer lose with a score : " + tiles[15];
+		document.getElementById("robotId").innerText = "Computer lose with a score : " + tiles[15];
+		document.getElementById("robotId").style.backgroundColor = "red";
+
 
 	}
 	else if(parseInt(tiles[15]) > parseInt(tiles[0]))
 	{
-		var y = document.getElementById("robotId");
-		y.innerHTML = "Computer wins with a Score : " + tiles[15];
-		y.style.backgroundColor = "green";
+		
+		document.getElementById("robotId").innerHTML = "Computer wins with a score : " + tiles[15];
+		document.getElementById("robotId").innerText = "Computer wins with a score : " + tiles[15];
+		document.getElementById("robotId").style.backgroundColor = "green";
 
-	    y = document.getElementById("userId");
-		y.innerHTML = " You lose with a Score : " + tiles[15];
-		y.style.backgroundColor = "red";
+		document.getElementById("userId").innerHTML = " You lose with a score : " + tiles[15];
+		document.getElementById("userId").innerText = "You lose with a score : " + tiles[15];
+		document.getElementById("userId").style.backgroundColor = "red";
 	}
 	else
 	{
-		var x = document.getElementById("robotId");
-		x.innerHTML = "Its a tie with a Score : " + tiles[15];
-		x.style.backgroundColor = "green";
+		
+		document.getElementById("robotId").innerHTML = "Its a tie with a score : " + tiles[15];
+		document.getElementById("robotId").innerText = "Its a tie with a score : " + tiles[15];
+		document.getElementById("robotId").style.backgroundColor = "green";
 
-	    x = document.getElementById("userId");
-		x.innerHTML = " Its a tie with a Score : " + tiles[15];
-		x.style.backgroundColor = "green";
+	   
+		document.getElementById("userId").value = " Its a tie with a score : " + tiles[15];
+		document.getElementById("userId").innerText = " Its a tie with a score : " + tiles[15];
+		document.getElementById("userId").style.backgroundColor = "green";
 
 
 	}
